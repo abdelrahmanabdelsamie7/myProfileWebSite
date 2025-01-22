@@ -7,7 +7,7 @@ return new class extends Migration {
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('image');
+            $table->text('image');
             $table->text('about_me');
             $table->timestamps();
         });
