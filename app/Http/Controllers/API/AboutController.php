@@ -19,17 +19,7 @@ class AboutController extends Controller
     }
     public function store(AboutRequest $request)
     {
-        $validatedData = $request->validated();
-        $imagePath = '';
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public');
-        }
-        $aboutMe = About::create([
-            'image' => $imagePath,
-            'about_me' => $validatedData['about_me'],
-            'user_id' => auth('api')->id(),
-        ]);
-
+        $aboutMe = About::create($request->validated());
         return $this->sendSuccess('About Me Data Added Successfully!', $aboutMe);
     }
     public function show(string $uuid)

@@ -11,7 +11,7 @@ class AboutRequest extends FormRequest
     {
         return [
             'about_me' => 'required|string|max:2048',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|string|max:2048',
         ];
     }
 }

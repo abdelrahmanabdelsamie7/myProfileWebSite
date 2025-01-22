@@ -19,21 +19,10 @@ class BlogController extends Controller
     }
     public function store(BlogRequest $request)
     {
-        $validatedData = $request->validated();
-        $imagePath = '';
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public');
-        }
-        $blog = Blog::create([
-            'image' => $imagePath,
-            'title' => $validatedData['title'],
-            'description' => $validatedData['description'],
-            'link_url' => $validatedData['link_url'],
-            'user_id' => auth('api')->id(),
-        ]);
-
+        $blog = Blog::create($request->validated());
         return $this->sendSuccess('Blog Data Added Successfully!', $blog);
     }
+
     public function show(string $uuid)
     {
         $blog = Blog::findOrFail($uuid);
