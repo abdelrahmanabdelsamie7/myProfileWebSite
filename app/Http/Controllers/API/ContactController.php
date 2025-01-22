@@ -9,7 +9,7 @@ class ContactController extends Controller
     use ResponseJsonTrait;
     public function __construct()
     {
-        $this->middleware('auth:api')->only('store', 'update', 'destroy');
+        $this->middleware('auth:api')->only('list', 'destroy');
     }
     public function index()
     {

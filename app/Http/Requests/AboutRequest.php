@@ -10,7 +10,7 @@ class AboutRequest extends FormRequest
     public function rules()
     {
         return [
-            'about_me' => 'required|string|max:255',
+            'about_me' => 'required|string|max:2048',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
