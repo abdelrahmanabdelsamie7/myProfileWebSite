@@ -13,7 +13,7 @@ class BlogRequest extends FormRequest
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'link_url' => 'required|string|url',
-            'image' => 'nullable|image|string|max:2048',
+            'image' => 'nullable|string|max:2048',
         ];
     }
 }
